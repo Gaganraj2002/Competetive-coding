@@ -1,3 +1,4 @@
+//Dice Roll 3
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -15,6 +16,5 @@ int main() {
     scanf("%d %d",&a,&b);
     rolled=roll(a,b);
     printf("%d",rolled);
-    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
     return 0;
 }
