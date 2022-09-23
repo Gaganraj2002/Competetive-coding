@@ -1,16 +1,21 @@
-# Not Working will resolve it
-n, req_sum = (int(x) for x in input().split())
-lst = [int(x) for x in input().split()]
-if 1 <= n and n <= 10**5 and n == len(lst):
-    i = j = 0
-    sum = 0
-    for i in range(n):
-        prev = lst[i]
-        if 1 <= lst[i] and lst[i] <= 10**9:
-            for j in range(i, n):
-                if prev < lst[j]:
-                    sum += lst[j]
-                    break
-                else:
-                    sum = 0
-    print(sum)
+import collections
+
+
+class Solution(object):
+    def subarraySum(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        ans = sums = 0
+        cnt = collections.Counter()
+        for num in nums:
+            cnt[sums] += 1
+            sums += num
+            ans += cnt[sums - k]
+        return ans
+
+
+x = Solution()
+print(x.subarraySum([1, 2, 3, 7, 5], 12))
